@@ -1,5 +1,6 @@
 import datetime
 from django import forms
+from django.conf import settings
 from django.shortcuts import render
 
 
@@ -14,9 +15,9 @@ class TimeEntryForm(forms.Form):
 def entry(request):
 	is_valid = False
 
-	format = '%I:%M %p'
+	time_format = settings.TIME_INPUT_FORMATS[-1]  # last format
 	example_dt = datetime.datetime.now()
-	example_dt_formatted = example_dt.strftime(format)
+	example_dt_formatted = example_dt.strftime(time_format)
 
 	if request.method == 'POST':
 		form = TimeEntryForm(request.POST)
@@ -37,5 +38,6 @@ def entry(request):
 
 		'example_dt': example_dt,
 		'example_dt_formatted': example_dt_formatted,
+		'time_format': time_format,
 	})
 

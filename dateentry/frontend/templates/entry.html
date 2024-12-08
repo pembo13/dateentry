@@ -1,11 +1,13 @@
 <form method="post">
-    {% if is_valid %}
-    <span style="color: green;">Form is valid</span>
-    {% endif %}
+    {% if is_valid %}<span style="color: green;">Form is valid</span> {% endif %}
+
     {% csrf_token %}
+
     {{ form }}
  
     <p><strong>Default Time Formatting:</strong> <var>{{ example_dt|time }}</var></p>
+
+    <p><strong>Target Format:</strong> <var>{{ time_format }}</var></p>
 
     <p><strong>Target Time Formatting:</strong> <var>{{ example_dt_formatted }}</var></p>
 
