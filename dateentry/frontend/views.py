@@ -47,7 +47,10 @@ def entry(request):
 
 		'example_dt': example_dt,
 		'example_dt_formatted': example_dt_formatted,
+		'field_input_formats': f.input_formats,
 		'field_validated': field_validated,
 		'time_format': time_format,
+
+		'TIME_INPUT_FORMATS': settings.TIME_INPUT_FORMATS,
 	})
 
